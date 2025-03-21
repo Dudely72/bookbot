@@ -15,9 +15,9 @@ from stats import dict_lister
 
 
 def main():
-    if len(sys.argv) != 2:
+    if len(sys.argv) != 2:       # set up to print error message if program is used unexpectedly
         print("Usage: python3 main.py <path_to_book>")
-        sys.exit(1)
+        sys.exit(1)              # gives error code 1
     
     print(f"""
 ============ BOOKBOT ============
@@ -25,8 +25,10 @@ Analyzing book found at {sys.argv[1]}...
 ----------- Word Count ----------
 Found {number_of_words(get_book_text(sys.argv[1]))} total words
 --------- Character Count -------""")
-    for i in range(0,len(dict_lister(character_count(get_book_text(sys.argv[1]))))):
-        print(f"{dict_lister(character_count(get_book_text(sys.argv[1])))[i]["character"]}: {dict_lister(character_count(get_book_text(sys.argv[1])))[i]["count"]}")
+    for i in range(0,len(dict_lister(character_count(get_book_text(sys.argv[1]))))):       # set up to print all characters and their count 1 by 1
+        print(f"""
+                {dict_lister(character_count(get_book_text(sys.argv[1])))[i]["character"]}: {dict_lister(character_count(get_book_text(sys.argv[1])))[i]["count"]}               
+            """)
     print("============= END ===============")
 
 
